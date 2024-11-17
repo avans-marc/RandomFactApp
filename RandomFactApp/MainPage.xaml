@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RandomFactApp.ViewModels"
+             x:DataType="local:MainPageViewModel"
+             x:Class="RandomFactApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <Button x:Name = "btnFetchRandomFact"
+                     Text = "Show me a random fact!"
+                     Command="{Binding FetchRandomFactCommand}"
+                     />
+
+            <Label x:Name="lblRandomFact" Text="{Binding RandomFact}"></Label>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
