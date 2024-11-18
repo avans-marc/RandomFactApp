@@ -2,7 +2,7 @@
 using RandomFactApp.Domain.Services;
 using System.Net.Http.Json;
 
-namespace RandomFactApp.Infrastructure
+namespace RandomFactApp.Infrastructure.UselessFactsJsphPIApi
 {
     /// <summary>
     /// Implements the RandomFactClient interface to fetch
@@ -24,9 +24,11 @@ namespace RandomFactApp.Infrastructure
             // If the request is not successfull, throw an exception
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<RandomFact?>();
+            var responseModel = await response.Content.ReadFromJsonAsync<UselessFactsJsphPlApiResponse>();
+
+            // Map to our domain model
+            return new RandomFact { Text = responseModel!.text };
         }
 
-        
     }
 }
