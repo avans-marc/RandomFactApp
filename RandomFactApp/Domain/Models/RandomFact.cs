@@ -11,7 +11,7 @@ namespace RandomFactApp.Domain.Models
     /// </summary>
     public class RandomFact
     {
-        public string Id { get; set; }
+
         public string Text { get; set; }
     }
 }
