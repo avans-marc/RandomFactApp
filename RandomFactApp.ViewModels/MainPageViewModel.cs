@@ -23,8 +23,11 @@ namespace RandomFactApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanFetchRandomFact))]
-        public async Task FetchRandomFact(string name)
+        public async Task FetchRandomFact()
         {
+            if (isFetchingRandomFact)
+                return;
+
             try
             {
                 isFetchingRandomFact = true;

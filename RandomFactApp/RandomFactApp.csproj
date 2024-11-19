@@ -68,4 +68,10 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\RandomFactApp.Domain\RandomFactApp.Domain.csproj" />
+	  <ProjectReference Include="..\RandomFactApp.Infrastructure\RandomFactApp.Infrastructure.csproj" />
+	  <ProjectReference Include="..\RandomFactApp.ViewModels\RandomFactApp.ViewModels.csproj" />
+	</ItemGroup>
+
 </Project>
