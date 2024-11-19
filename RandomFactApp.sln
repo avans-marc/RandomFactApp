@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFactApp.ViewModels", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFactApp.ViewModels.Tests", "RandomFactApp.ViewModels.Tests\RandomFactApp.ViewModels.Tests.csproj", "{548BDF41-1990-4168-8548-5BA055A72217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFactApp.Domain.Tests", "RandomFactApp.Domain.Tests\RandomFactApp.Domain.Tests.csproj", "{FE4109A9-134E-4794-8AE9-AD91923DDBB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{548BDF41-1990-4168-8548-5BA055A72217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{548BDF41-1990-4168-8548-5BA055A72217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{548BDF41-1990-4168-8548-5BA055A72217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4109A9-134E-4794-8AE9-AD91923DDBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4109A9-134E-4794-8AE9-AD91923DDBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4109A9-134E-4794-8AE9-AD91923DDBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4109A9-134E-4794-8AE9-AD91923DDBB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

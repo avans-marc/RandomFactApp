@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using RandomFactApp.Domain.Services;
+using RandomFactApp.Domain.Clients;
 using RandomFactApp.Infrastructure.FunGeneratorFactsApi;
 using RandomFactApp.Infrastructure.UselessFactsJsphPIApi;
 using RandomFactApp.ViewModels;

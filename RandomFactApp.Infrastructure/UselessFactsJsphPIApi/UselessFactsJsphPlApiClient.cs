@@ -1,5 +1,5 @@
 ﻿using RandomFactApp.Domain.Models;
-using RandomFactApp.Domain.Services;
+using RandomFactApp.Domain.Clients;
 using System.Net.Http.Json;
 
 namespace RandomFactApp.Infrastructure.UselessFactsJsphPIApi

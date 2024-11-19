@@ -1,7 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RandomFactApp.Domain.Services;
+using RandomFactApp.Domain.Clients;
 
 namespace RandomFactApp.ViewModels
 {
