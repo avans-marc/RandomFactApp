@@ -1,7 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using RandomFactApp.Domain.Services;
+using RandomFactApp.Domain.Clients;
 
 namespace RandomFactApp.ViewModels
 {
@@ -23,8 +23,11 @@ namespace RandomFactApp.ViewModels
         }
 
         [RelayCommand(CanExecute = nameof(CanFetchRandomFact))]
-        public async Task FetchRandomFact(string name)
+        public async Task FetchRandomFact()
         {
+            if (isFetchingRandomFact)
+                return;
+
             try
             {
                 isFetchingRandomFact = true;

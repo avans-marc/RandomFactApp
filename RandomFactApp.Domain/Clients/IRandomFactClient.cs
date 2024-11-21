@@ -1,6 +1,6 @@
 ﻿using RandomFactApp.Domain.Models;
 
-namespace RandomFactApp.Domain.Services
+namespace RandomFactApp.Domain.Clients
 {
     /// <summary>
     /// Implementations of this interface provide functionality
