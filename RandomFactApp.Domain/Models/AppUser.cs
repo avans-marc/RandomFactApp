@@ -16,7 +16,15 @@ namespace RandomFactApp.Domain.Models
 
 
         // TODO: Toddler logic here
+        public bool IsToddler(DateTime now)
+        {
+            var age = GetAge(now);
 
+            return age < 5;
+
+        }
+
+        public bool IsToddler() => IsToddler(DateTime.Now); 
 
         public bool IsAllowedExplicitRandomFacts(DateTime now)
         {
