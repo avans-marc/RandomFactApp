@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:cc="clr-namespace:RandomFactApp.CustomControls"
              x:Class="RandomFactApp.MainPage">
 
     <ScrollView>
@@ -13,6 +14,24 @@
                      />
 
             <Label x:Name="lblRandomFact" Text="{Binding RandomFact}"></Label>
+
+                
+            <!--<maps:Map x:Name="map" ItemsSource="{Binding MappedRandomFacts}" HeightRequest="300" MapSpan="">
+                <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <maps:Pin Location="{Binding Location}" Label="{Binding Fact}" />
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
+            </maps:Map>-->
+
+            <!--  Source: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl -->
+            <cc:MvvmMap x:Name="mvvmMap1" ItemsSource="{Binding MappedRandomFacts}" MapSpan="{Binding CurrentMapSpan}" HeightRequest="300">
+                <cc:MvvmMap.ItemTemplate>
+                    <DataTemplate>
+                        <maps:Pin Location="{Binding Location}" Label="{Binding Fact}" />
+                    </DataTemplate>
+                </cc:MvvmMap.ItemTemplate>
+            </cc:MvvmMap>
 
         </VerticalStackLayout>
     </ScrollView>
