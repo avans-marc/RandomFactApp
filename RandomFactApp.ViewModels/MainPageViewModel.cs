@@ -1,7 +1,10 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Maps;
 using RandomFactApp.Domain.Clients;
+using RandomFactApp.Domain.Models;
+using System.Collections.ObjectModel;
 
 namespace RandomFactApp.ViewModels
 {
@@ -12,14 +15,24 @@ namespace RandomFactApp.ViewModels
     {
         private readonly IRandomFactClient randomFactClient;
 
+
+        [ObservableProperty]
+        private ObservableCollection<MappedRandomFactViewModel> mappedRandomFacts;
+
         [ObservableProperty]
         public string randomFact;
 
+        [ObservableProperty]
+        public Microsoft.Maui.Maps.MapSpan currentMapSpan;
+
         public bool isFetchingRandomFact = false;
+
 
         public MainPageViewModel(IRandomFactClient randomFactClient)
         {
             this.randomFactClient = randomFactClient;
+            this.mappedRandomFacts = new ObservableCollection<MappedRandomFactViewModel>();
+            
         }
 
         [RelayCommand(CanExecute = nameof(CanFetchRandomFact))]
@@ -33,6 +46,16 @@ namespace RandomFactApp.ViewModels
                 isFetchingRandomFact = true;
                 var fact = await this.randomFactClient.GetRandomFactAsync();
                 this.RandomFact = fact!.Text;
+
+                if(fact.Location != null)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Got a fact from {fact.Location.City}");
+
+                    var location = new Location(fact.Location.Latitude, fact.Location.Longitude);
+
+                    this.CurrentMapSpan = MapSpan.FromCenterAndRadius(location, Distance.FromKilometers(100));
+                    this.MappedRandomFacts.Add(new MappedRandomFactViewModel(fact!.Text, location ));
+                }
             }
             catch (Exception ex)
             {
@@ -53,5 +76,13 @@ namespace RandomFactApp.ViewModels
         public bool CanFetchRandomFact() => !isFetchingRandomFact;
 
 
+
+        private class MappedRandomFact
+        {
+            
+            Location Location;
+
+
+        }
     }
 }

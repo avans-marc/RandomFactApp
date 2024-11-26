@@ -27,8 +27,13 @@ namespace RandomFactApp.Infrastructure.UselessFactsJsphPIApi
             var responseModel = await response.Content.ReadFromJsonAsync<UselessFactsJsphPlApiResponse>();
 
             // Map to our domain model
-            return new RandomFact { Text = responseModel!.text };
+            return new RandomFact 
+            { 
+                Text = responseModel!.text, 
+                Location = GpsLocation.CreateRandomLocation() 
+            };
         }
 
+     
     }
 }

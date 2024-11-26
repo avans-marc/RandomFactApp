@@ -28,7 +28,11 @@ namespace RandomFactApp.Infrastructure.FunGeneratorFactsApi
             var responseModel = await response.Content.ReadFromJsonAsync<CatFactNinjaApiResponse>();
 
             // Map to our domain model
-            return new RandomFact { Text = responseModel!.fact };
+            return new RandomFact 
+            { 
+                Text = responseModel!.fact,
+                Location = GpsLocation.CreateRandomLocation()
+            };
         }
     }
 }
