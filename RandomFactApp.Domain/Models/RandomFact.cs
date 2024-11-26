@@ -13,5 +13,7 @@ namespace RandomFactApp.Domain.Models
     {
 
         public string Text { get; set; }
+
+        public GpsLocation Location { get; set; }
     }
 }
