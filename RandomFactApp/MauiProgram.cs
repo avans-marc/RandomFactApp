@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using RandomFactApp.Domain.Clients;
 using RandomFactApp.Infrastructure.FunGeneratorFactsApi;
+using RandomFactApp.Infrastructure.SomeWebSocketClient;
 using RandomFactApp.Infrastructure.UselessFactsJsphPIApi;
 using RandomFactApp.ViewModels;
 
@@ -42,6 +43,8 @@ public static class MauiProgram
             o.Timeout = TimeSpan.FromSeconds(3);
         });
 
+        builder.Services.AddSingleton<IGeolocation>(o => Geolocation.Default);
+        builder.Services.AddTransient<IWebSocketClient, SomeWebSocketClient>();
 
         /*
          * An alternative approach would be to replace the implementation of the RandomFactClient with another one. 

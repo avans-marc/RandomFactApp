@@ -10,14 +10,14 @@ namespace RandomFactApp.ViewModels
     public partial class MappedRandomFactViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string fact;
+        private string label;
 
         [ObservableProperty]
         private Location location;
 
         public MappedRandomFactViewModel(string fact, Location location)
         {
-            this.fact = fact;
+            this.label = fact;
             this.location = location;
         }
     }

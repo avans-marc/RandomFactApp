@@ -13,25 +13,26 @@
                      Command="{Binding FetchRandomFactCommand}"
                      />
 
+
+
             <Label x:Name="lblRandomFact" Text="{Binding RandomFact}"></Label>
 
-                
-            <!--<maps:Map x:Name="map" ItemsSource="{Binding MappedRandomFacts}" HeightRequest="300" MapSpan="">
-                <maps:Map.ItemTemplate>
-                        <DataTemplate>
-                            <maps:Pin Location="{Binding Location}" Label="{Binding Fact}" />
-                        </DataTemplate>
-                    </maps:Map.ItemTemplate>
-            </maps:Map>-->
-
+               
             <!--  Source: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl -->
             <cc:MvvmMap x:Name="mvvmMap1" ItemsSource="{Binding MappedRandomFacts}" MapSpan="{Binding CurrentMapSpan}" HeightRequest="300">
                 <cc:MvvmMap.ItemTemplate>
                     <DataTemplate>
-                        <maps:Pin Location="{Binding Location}" Label="{Binding Fact}" />
+                        <maps:Pin Location="{Binding Location}" Label="{Binding Label}" />
                     </DataTemplate>
                 </cc:MvvmMap.ItemTemplate>
             </cc:MvvmMap>
+
+            <Button x:Name = "btnSendFactToSocket"
+                  Text = "Send fact to web socket"
+                  Command="{Binding SendFactToSocketCommand}"
+                  />
+
+            <Label x:Name="lblNotification" Text="{Binding Notification}"></Label>
 
         </VerticalStackLayout>
     </ScrollView>
