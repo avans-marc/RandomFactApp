@@ -16,3 +16,4 @@ This example app uses a random fact app API to display random facts to the user.
 - Uses the HttpClientFactory (`Microsoft.Extensions.Http`) to create a(testable) API client using Dependency Injection. This client is configured in the `Program.cs`
 - ViewModels with compiled bindings to seperate UI logic from Domain logic and the UI itself (MVVM pattern)
 - Has a custom map wrapper that allows MVVM binding to the Map control (credits to: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl)
+- A simple (and fairly useless) websocket implementation
