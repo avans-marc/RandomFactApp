@@ -4,6 +4,7 @@ using Microsoft.Maui.Maps;
 using RandomFactApp.Domain.Clients;
 using RandomFactApp.Domain.Models;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace RandomFactApp.ViewModels
 {
@@ -24,7 +25,7 @@ namespace RandomFactApp.ViewModels
         public string randomFact;
 
         [ObservableProperty]
-        public Microsoft.Maui.Maps.MapSpan currentMapSpan;
+        public MapSpan currentMapSpan;
 
         [ObservableProperty]
         public string notification;
@@ -38,8 +39,6 @@ namespace RandomFactApp.ViewModels
             this.geolocation = geolocation;
 
             this.mappedRandomFacts = new ObservableCollection<MappedRandomFactViewModel>();
-
-            // :Lees websocket
         }
 
         [RelayCommand(CanExecute = nameof(CanFetchRandomFact))]
@@ -53,7 +52,6 @@ namespace RandomFactApp.ViewModels
                 isFetchingRandomFact = true;
                 var fact = await this.randomFactClient.GetRandomFactAsync();
 
-              
                 await ProcessNewRandomFactAsync(fact);
 
             }

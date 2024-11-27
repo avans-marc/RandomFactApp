@@ -32,7 +32,6 @@ public static class MauiProgram
          *  The HttpClientFactory takes care of managing the lifecycle of both the UselessFactsJsphPlApiClient and the underlying HttpClient it relies on. 
          *  This eliminates concerns about manually handling the lifetime of the HttpClient, improving reliability and reducing potential issues like socket exhaustion.
          */
-
         builder.Services.AddHttpClient<IRandomFactClient, UselessFactsJsphPlApiClient>(o =>
         {
 
@@ -43,15 +42,12 @@ public static class MauiProgram
             o.Timeout = TimeSpan.FromSeconds(3);
         });
 
-        builder.Services.AddSingleton<IGeolocation>(o => Geolocation.Default);
-        builder.Services.AddTransient<IWebSocketClient, SomeWebSocketClient>();
 
         /*
          * An alternative approach would be to replace the implementation of the RandomFactClient with another one. 
          * Since classes depending on the client are designed to use an interface (through dependency injection), no changes are required in those classes. 
          * This ensures flexibility and promotes a clean, modular design.
          */
-
         //builder.Services.AddHttpClient<IRandomFactClient, CatFactNinjaApiClient>(o => {
 
         //    // We configure the base address hardcoded, but we could read it from a settings file
@@ -61,17 +57,26 @@ public static class MauiProgram
         //    o.Timeout = TimeSpan.FromSeconds(10);
         //});
 
-
-
-
         // We could register other HttpClients here with different timeout/resilience options.
 
+
         // Transient: resolve the object everytime we need it
+        // We need to register these objects even though they're not interfaced
+        // They have depedencies injected in their constructors, and therefore need to make use of the dependency container to be able to be resolved
         builder.Services.AddTransient<MainPageViewModel>();
         builder.Services.AddTransient<MainPage>();
 
+        // Resolve the IWebSocketClient with the SomeWebSocketClient implementation
+        builder.Services.AddTransient<IWebSocketClient, SomeWebSocketClient>();
 
-        #if DEBUG
+        // Singleton: resolve the object only once during the lifetime of the application
+        // In this registration 👇 we tell the dependency injection container to always return the default Geolocation instance.
+        builder.Services.AddSingleton<IGeolocation>(o => Geolocation.Default);
+        builder.Services.AddSingleton<IPreferences>(o => Preferences.Default);
+        
+
+
+#if DEBUG
         builder.Logging.AddDebug();
         #endif
 

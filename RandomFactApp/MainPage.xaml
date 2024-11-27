@@ -14,10 +14,9 @@
                      />
 
 
-
+    
             <Label x:Name="lblRandomFact" Text="{Binding RandomFact}"></Label>
 
-               
             <!--  Source: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl -->
             <cc:MvvmMap x:Name="mvvmMap1" ItemsSource="{Binding MappedRandomFacts}" MapSpan="{Binding CurrentMapSpan}" HeightRequest="300">
                 <cc:MvvmMap.ItemTemplate>
