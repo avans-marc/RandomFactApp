@@ -76,12 +76,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="StoragePage.xaml.cs">
+	    <DependentUpon>StoragePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="PositioningPage.xaml.cs">
 	    <DependentUpon>PositioningPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="ApiSocketsPage.xaml.cs">
 	    <DependentUpon>ApiSocketsPage.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="StoragePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

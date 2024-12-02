@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace RandomFactApp.Domain.Models
 {
-    public class GpsLocation
+    public class City
     {
-        public GpsLocation()
+        public City()
         {
             
         }
 
-        public GpsLocation(double latitude, double longitude, string city)
+        public City(double latitude, double longitude, string city)
         {
             this.Latitude = latitude;
             this.Longitude = longitude;
-            this.City = city;
+            this.Name = city;
         }
 
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
 
-        public string City { get; set; }
+        public string Name { get; set; }
 
-        public static GpsLocation CreateRandomLocation()
+        public static City CreateRandomLocation()
         {
             Random random = new Random();
                 List<(string City, string Country, double Latitude, double Longitude)> worldCities = new List<(string, string, double, double)>
@@ -58,7 +58,7 @@ namespace RandomFactApp.Domain.Models
             var position = random.Next(0, worldCities.Count);
             var city = worldCities[position];
 
-            return new GpsLocation(city.Latitude, city.Longitude, city.City);
+            return new City(city.Latitude, city.Longitude, city.City);
 
         }
     }

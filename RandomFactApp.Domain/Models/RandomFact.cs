@@ -11,9 +11,8 @@ namespace RandomFactApp.Domain.Models
     /// </summary>
     public class RandomFact
     {
-
         public string Text { get; set; }
 
-        public GpsLocation Location { get; set; }
+        public City Location { get; set; }
     }
 }

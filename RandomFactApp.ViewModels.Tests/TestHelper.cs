@@ -13,7 +13,7 @@ namespace RandomFactApp.ViewModels.Tests
     {
         public static RandomFact CreateRandomRandomFact()
         {
-            return new RandomFact { Text = Guid.NewGuid().ToString(), Location = new GpsLocation(0, 0, "City") };
+            return new RandomFact { Text = Guid.NewGuid().ToString(), Location = new City(0, 0, "City") };
         }
 
 

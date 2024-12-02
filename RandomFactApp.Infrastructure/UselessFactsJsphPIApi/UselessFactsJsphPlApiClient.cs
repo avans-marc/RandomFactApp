@@ -30,7 +30,7 @@ namespace RandomFactApp.Infrastructure.UselessFactsJsphPIApi
             return new RandomFact 
             { 
                 Text = responseModel!.text, 
-                Location = GpsLocation.CreateRandomLocation() 
+                Location = City.CreateRandomLocation() 
             };
         }
 

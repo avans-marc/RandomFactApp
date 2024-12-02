@@ -17,4 +17,9 @@
         ContentTemplate="{DataTemplate local:PositioningPage}"
         Route="Positioning" />
 
+    <ShellContent
+        Title="Local Storage"
+        ContentTemplate="{DataTemplate local:StoragePage}"
+        Route="Storage" />
+
 </Shell>

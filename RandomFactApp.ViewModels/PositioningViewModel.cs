@@ -71,7 +71,7 @@ namespace RandomFactApp.ViewModels
             if (e!.Location != null)
             {
                 this.CurrentPosition = e.Location.ToString();
-                this.CurrentMapSpan = MapSpan.FromCenterAndRadius(e.Location, Distance.FromMeters(25));
+                this.CurrentMapSpan = MapSpan.FromCenterAndRadius(e.Location, Distance.FromMeters(500));
             }
         }
 
@@ -112,7 +112,7 @@ namespace RandomFactApp.ViewModels
                 try
                 {
                     var user_location = await this.geolocation.GetLastKnownLocationAsync();
-                    fact_summary += $" (from {fact!.Location.City}, that's {Location.CalculateDistance(fact_location, user_location, DistanceUnits.Kilometers):N0} km from you)";
+                    fact_summary += $" (from {fact!.Location.Name}, that's {Location.CalculateDistance(fact_location, user_location, DistanceUnits.Kilometers):N0} km from you)";
                 }
                 catch
                 // Remember, there a a lot of possible errors here. Decide if you would like to point your user to

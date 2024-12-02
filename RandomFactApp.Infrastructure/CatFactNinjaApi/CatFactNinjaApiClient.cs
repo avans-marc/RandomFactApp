@@ -31,7 +31,7 @@ namespace RandomFactApp.Infrastructure.FunGeneratorFactsApi
             return new RandomFact 
             { 
                 Text = responseModel!.fact,
-                Location = GpsLocation.CreateRandomLocation()
+                Location = City.CreateRandomLocation()
             };
         }
     }

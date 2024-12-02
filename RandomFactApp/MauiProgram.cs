@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using RandomFactApp.Domain.Clients;
+using RandomFactApp.Domain.Repositories;
 using RandomFactApp.Infrastructure.FunGeneratorFactsApi;
 using RandomFactApp.Infrastructure.SomeWebSocketClient;
+using RandomFactApp.Infrastructure.SQLiteRepositories;
 using RandomFactApp.Infrastructure.UselessFactsJsphPIApi;
 using RandomFactApp.ViewModels;
 
@@ -68,6 +70,15 @@ public static class MauiProgram
 
         builder.Services.AddTransient<PositioningViewModel>();
         builder.Services.AddTransient<PositioningPage>();
+
+        builder.Services.AddTransient<StorageViewModel>();
+        builder.Services.AddTransient<StoragePage>();
+
+        // Resolve the ICityRepository with the SqlCityRepository implementation
+        builder.Services.AddSingleton<ITodoRepository, SqlToDoRepository>(o =>
+        {
+            return new SqlToDoRepository(Path.Combine(FileSystem.AppDataDirectory, "RandomFactApp.db3"));
+        });
 
         // Resolve the IWebSocketClient with the SomeWebSocketClient implementation
         builder.Services.AddTransient<IWebSocketClient, SomeWebSocketClient>();
