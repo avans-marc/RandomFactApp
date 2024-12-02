@@ -75,4 +75,13 @@
 	  <ProjectReference Include="..\RandomFactApp.ViewModels\RandomFactApp.ViewModels.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="PositioningPage.xaml.cs">
+	    <DependentUpon>PositioningPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ApiSocketsPage.xaml.cs">
+	    <DependentUpon>ApiSocketsPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 </Project>

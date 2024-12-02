@@ -2,13 +2,13 @@
 
 namespace RandomFactApp;
 
-public partial class MainPage : ContentPage
+public partial class ApiSocketsPage : ContentPage
 {
     private readonly IDispatcherTimer timer;
-    private readonly MainPageViewModel mainPageViewModel;
+    private readonly ApiSocketsViewModel mainPageViewModel;
 
     // We inject the viewModel becasue this class depends on it.
-    public MainPage(MainPageViewModel mainPageViewModel)
+    public ApiSocketsPage(ApiSocketsViewModel mainPageViewModel)
     {
         InitializeComponent();
 

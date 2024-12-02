@@ -8,8 +8,13 @@
     Title="RandomFactApp">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="API &amp; Websockets"
+        ContentTemplate="{DataTemplate local:ApiSocketsPage}"
+        Route="ApiSockets" />
+
+    <ShellContent
+        Title="Positioning"
+        ContentTemplate="{DataTemplate local:PositioningPage}"
+        Route="Positioning" />
 
 </Shell>

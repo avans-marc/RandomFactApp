@@ -63,8 +63,11 @@ public static class MauiProgram
         // Transient: resolve the object everytime we need it
         // We need to register these objects even though they're not interfaced
         // They have depedencies injected in their constructors, and therefore need to make use of the dependency container to be able to be resolved
-        builder.Services.AddTransient<MainPageViewModel>();
-        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<ApiSocketsViewModel>();
+        builder.Services.AddTransient<ApiSocketsPage>();
+
+        builder.Services.AddTransient<PositioningViewModel>();
+        builder.Services.AddTransient<PositioningPage>();
 
         // Resolve the IWebSocketClient with the SomeWebSocketClient implementation
         builder.Services.AddTransient<IWebSocketClient, SomeWebSocketClient>();

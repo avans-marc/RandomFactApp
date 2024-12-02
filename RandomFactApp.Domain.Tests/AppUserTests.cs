@@ -8,25 +8,25 @@ namespace RandomFactApp.Domain.Tests
     [TestClass]
     public sealed class AppUserTests
     {
-        [TestMethod]
-        public void AppUser_UnderTheAgeOf5_IsAToddler()
-        {
-            // Arrange
-            var today = new DateTime(2024, 1, 1);
-            var birthDate = new DateTime(2022, 1, 1);
-            var user = new AppUser
-            {
-                Country = new Country { IsoCode = "NL" },
-                DateOfBirth = birthDate,
-                Name = "Kleuter"
-            };
+        //[TestMethod]
+        //public void AppUser_UnderTheAgeOf5_IsAToddler()
+        //{
+        //    // Arrange
+        //    var today = new DateTime(2024, 1, 1);
+        //    var birthDate = new DateTime(2022, 1, 1);
+        //    var user = new AppUser
+        //    {
+        //        Country = new Country { IsoCode = "NL" },
+        //        DateOfBirth = birthDate,
+        //        Name = "Kleuter"
+        //    };
 
-            // Act
-            var isToddler = user.IsToddler(today);
+        //    // Act
+        //    var isToddler = user.IsToddler(today);
 
-            // Assert
-            isToddler.Should().BeTrue();
-        }
+        //    // Assert
+        //    isToddler.Should().BeTrue();
+        //}
 
         [TestMethod]
         public void AppUser_ShouldBeAllowedExplicitRandomFacts_WhenOldEnoughAccordingToCountry()

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:cc="clr-namespace:RandomFactApp.CustomControls"
+             x:Class="RandomFactApp.PositioningPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <Button x:Name = "btnFetchRandomFact"
+                     Text = "Show me random fact on the map"
+                     Command="{Binding FetchRandomFactCommand}"
+                     />
+
+            <!--  Source: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl -->
+            <cc:MvvmMap x:Name="mvvmMap1" ItemsSource="{Binding MappedRandomFacts}" IsShowingUser="{Binding IsListening}" MapSpan="{Binding CurrentMapSpan}" SelectedItem="{Binding CurrentMappedRandomFact}" HeightRequest="300">
+                <cc:MvvmMap.ItemTemplate>
+                    <DataTemplate>
+                        <maps:Pin Location="{Binding Location}" Label="{Binding Label}" />
+                    </DataTemplate>
+                </cc:MvvmMap.ItemTemplate>
+            </cc:MvvmMap>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label x:Name="lblInformation" Text="Track me on the map"></Label>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Button x:Name="btnStartListening" Text = "Start"  Command="{Binding StartListeningCommand}" />
+                <Button x:Name="btnStopListening" Text = "Stop"  Command="{Binding StopListeningCommand}"  />
+            </HorizontalStackLayout>
+
+
+            <Label x:Name="lblCurrentPosition" Text="{Binding CurrentPosition}"></Label>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

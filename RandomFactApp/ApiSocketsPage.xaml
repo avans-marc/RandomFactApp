@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
-             xmlns:cc="clr-namespace:RandomFactApp.CustomControls"
-             x:Class="RandomFactApp.MainPage">
+             x:Class="RandomFactApp.ApiSocketsPage">
 
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="20">
@@ -13,18 +12,7 @@
                      Command="{Binding FetchRandomFactCommand}"
                      />
 
-
-    
             <Label x:Name="lblRandomFact" Text="{Binding RandomFact}"></Label>
-
-            <!--  Source: https://dev.to/symbiogenesis/use-net-maui-map-control-with-mvvm-dfl -->
-            <cc:MvvmMap x:Name="mvvmMap1" ItemsSource="{Binding MappedRandomFacts}" MapSpan="{Binding CurrentMapSpan}" HeightRequest="300">
-                <cc:MvvmMap.ItemTemplate>
-                    <DataTemplate>
-                        <maps:Pin Location="{Binding Location}" Label="{Binding Label}" />
-                    </DataTemplate>
-                </cc:MvvmMap.ItemTemplate>
-            </cc:MvvmMap>
 
             <Button x:Name = "btnSendFactToSocket"
                   Text = "Send fact to web socket"
@@ -32,6 +20,8 @@
                   />
 
             <Label x:Name="lblNotification" Text="{Binding Notification}"></Label>
+
+            
 
         </VerticalStackLayout>
     </ScrollView>

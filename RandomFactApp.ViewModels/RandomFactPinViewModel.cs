@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RandomFactApp.ViewModels
 {
-    public partial class MappedRandomFactViewModel : ObservableObject
+    public partial class RandomFactPinViewModel : ObservableObject
     {
         [ObservableProperty]
         private string label;
@@ -15,7 +15,7 @@ namespace RandomFactApp.ViewModels
         [ObservableProperty]
         private Location location;
 
-        public MappedRandomFactViewModel(string fact, Location location)
+        public RandomFactPinViewModel(string fact, Location location)
         {
             this.label = fact;
             this.location = location;
