@@ -34,11 +34,11 @@ namespace RandomFactApp.ViewModels
         public PositioningViewModel(IRandomFactClient randomFactClient, IGeolocation geolocation)
         {
             this.geolocation = geolocation;
+
             this.geolocation.LocationChanged += LocationChanged;
 
             this.randomFactClient = randomFactClient;
             this.mappedRandomFacts = new ObservableCollection<RandomFactPinViewModel>();
-            
         }
 
 
@@ -74,7 +74,6 @@ namespace RandomFactApp.ViewModels
                 this.CurrentMapSpan = MapSpan.FromCenterAndRadius(e.Location, Distance.FromMeters(500));
             }
         }
-
 
         [RelayCommand(CanExecute = nameof(CanFetchRandomFact))]
         public async Task FetchRandomFact()

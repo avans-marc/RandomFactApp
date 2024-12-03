@@ -13,7 +13,6 @@ namespace RandomFactApp.ViewModels
 {
     public partial class StorageViewModel : ObservableObject
     {
-
         private readonly ITodoRepository toDoRepository;
 
         [ObservableProperty]
@@ -22,20 +21,19 @@ namespace RandomFactApp.ViewModels
         [ObservableProperty]
         private string newToDoLabel;
 
-
-        public StorageViewModel(ITodoRepository cityRepository)
+        public StorageViewModel(ITodoRepository toDoRepository)
         {
-            this.toDoRepository = cityRepository;
+            this.toDoRepository = toDoRepository;
             this.ToDos = new ObservableCollection<ToDo>();
         }
 
         [RelayCommand]
         public async Task FetchToDos()
         {
-            this.ToDos.Clear();    
+            this.ToDos.Clear();
             var todos = await this.toDoRepository.GetToDosAsync();
 
-            foreach(var todo in todos)
+            foreach (var todo in todos)
                 this.ToDos.Add(todo);
         }
 
