@@ -7,9 +7,7 @@
     <ScrollView>
         <VerticalStackLayout Spacing="15" Padding="20">
 
-            <Button x:Name = "btnFetchCities"
-                     Text = "Show TODO's"
-                     Command="{Binding FetchToDosCommand}" />
+            <Button x:Name = "btnFetchCities" Text = "Show all To Do's" Command="{Binding FetchToDosCommand}" />
 
             <ListView ItemsSource="{Binding ToDos}">
                 <ListView.ItemTemplate>
@@ -22,9 +20,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="1"
-                           Text="{Binding Label}"
-                           FontAttributes="Bold" />
+                                <Label Grid.Column="1" Text="{Binding Label}" FontAttributes="Bold" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -32,11 +28,8 @@
             </ListView>
 
             <Entry x:Name="entry" Placeholder="Add todo" Text="{Binding NewToDoLabel}" />
-            <Button x:Name = "btnAddToDos"
-           Text = "Add To Do"
-           Command="{Binding AddToDosCommand}" />
-
-
+            <Button x:Name = "btnAddToDos" Text = "Add To Do" Command="{Binding AddToDosCommand}" />
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
