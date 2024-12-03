@@ -1,12 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using RandomFactApp.Domain.Clients;
 using RandomFactApp.Domain.Repositories;
-using RandomFactApp.Infrastructure.FunGeneratorFactsApi;
 using RandomFactApp.Infrastructure.SomeWebSocketClient;
 using RandomFactApp.Infrastructure.SQLiteRepositories;
 using RandomFactApp.Infrastructure.UselessFactsJsphPIApi;
 using RandomFactApp.ViewModels;
-
 
 namespace RandomFactApp;
 
@@ -17,9 +15,9 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            #if __ANDROID__ || __IOS__
+#if __ANDROID__ || __IOS__
                 .UseMauiMaps()
-            #endif
+#endif
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -28,15 +26,14 @@ public static class MauiProgram
 
         /*
          *  The Dependency Injection 'chapter'
-         *  
-         *  Using the Microsoft.Extensions.Http library, we can register specific HttpClient instances tailored to our implementation. 
+         *
+         *  Using the Microsoft.Extensions.Http library, we can register specific HttpClient instances tailored to our implementation.
          *  This approach enables us to cleanly manage dependencies, such as the UselessFactsJsphPlApiClient.
-         *  The HttpClientFactory takes care of managing the lifecycle of both the UselessFactsJsphPlApiClient and the underlying HttpClient it relies on. 
+         *  The HttpClientFactory takes care of managing the lifecycle of both the UselessFactsJsphPlApiClient and the underlying HttpClient it relies on.
          *  This eliminates concerns about manually handling the lifetime of the HttpClient, improving reliability and reducing potential issues like socket exhaustion.
          */
         builder.Services.AddHttpClient<IRandomFactClient, UselessFactsJsphPlApiClient>(o =>
         {
-
             // We configure the base address hardcoded, but we could read it from a settings file
             o.BaseAddress = new Uri("https://uselessfacts.jsph.pl/api/v2/");
 
@@ -44,14 +41,12 @@ public static class MauiProgram
             o.Timeout = TimeSpan.FromSeconds(3);
         });
 
-
         /*
-         * An alternative approach would be to replace the implementation of the RandomFactClient with another one. 
-         * Since classes depending on the client are designed to use an interface (through dependency injection), no changes are required in those classes. 
+         * An alternative approach would be to replace the implementation of the RandomFactClient with another one.
+         * Since classes depending on the client are designed to use an interface (through dependency injection), no changes are required in those classes.
          * This ensures flexibility and promotes a clean, modular design.
          */
         //builder.Services.AddHttpClient<IRandomFactClient, CatFactNinjaApiClient>(o => {
-
         //    // We configure the base address hardcoded, but we could read it from a settings file
         //    o.BaseAddress = new Uri("https://catfact.ninja/");
 
@@ -60,7 +55,6 @@ public static class MauiProgram
         //});
 
         // We could register other HttpClients here with different timeout/resilience options.
-
 
         // Transient: resolve the object everytime we need it
         // We need to register these objects even though they're not interfaced
@@ -87,12 +81,10 @@ public static class MauiProgram
         // In this registration 👇 we tell the dependency injection container to always return the default Geolocation instance.
         builder.Services.AddSingleton<IGeolocation>(o => Geolocation.Default);
         builder.Services.AddSingleton<IPreferences>(o => Preferences.Default);
-        
-
 
 #if DEBUG
         builder.Logging.AddDebug();
-        #endif
+#endif
 
         return builder.Build();
     }

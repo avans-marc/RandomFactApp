@@ -1,15 +1,7 @@
-﻿using Microsoft.VisualBasic;
-using RandomFactApp.Domain.Models;
+﻿using RandomFactApp.Domain.Models;
 using RandomFactApp.Domain.Repositories;
 using RandomFactApp.Infrastructure.SQLiteRepositories.Entities;
 using SQLite;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RandomFactApp.Infrastructure.SQLiteRepositories
 {
@@ -46,8 +38,8 @@ namespace RandomFactApp.Infrastructure.SQLiteRepositories
 
             // Map entity to domain model (you could use Automapper or Mapperly for this)
             // In some environments it is considered best practise to have separate objects for entities and domain models
-            // to keep the domain really persistence ignorant (the domain does not care where it is persisted). 
-            return entities.Select(x => new ToDo {  Label = x.Label });
+            // to keep the domain really persistence ignorant (the domain does not care where it is persisted).
+            return entities.Select(x => new ToDo { Label = x.Label });
         }
 
         private async Task Init()
