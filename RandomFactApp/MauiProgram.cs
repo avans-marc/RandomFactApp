@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using RandomFactApp.Domain.Clients;
 using RandomFactApp.Domain.Repositories;
 using RandomFactApp.Infrastructure.SomeWebSocketClient;
@@ -18,6 +19,8 @@ public static class MauiProgram
 #if __ANDROID__ || __IOS__
                 .UseMauiMaps()
 #endif
+            .UseMauiCommunityToolkit()
+             .UseMauiCommunityToolkitMediaElement()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

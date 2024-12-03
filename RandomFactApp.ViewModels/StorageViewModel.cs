@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RandomFactApp.Domain.Models;
 using RandomFactApp.Domain.Repositories;
@@ -44,6 +45,9 @@ namespace RandomFactApp.ViewModels
             {
                 var newToDo = new ToDo { Label = NewToDoLabel };
                 await this.toDoRepository.AddToDoAsync(newToDo);
+
+                var toast = Toast.Make("To Do added");
+                await toast.Show();
 
                 this.ToDos.Add(newToDo);
             }

@@ -22,4 +22,8 @@
         ContentTemplate="{DataTemplate local:StoragePage}"
         Route="Storage" />
 
+    <ShellContent
+        Title="Media"
+        ContentTemplate="{DataTemplate local:MediaPage}"
+        Route="Media" />
 </Shell>
