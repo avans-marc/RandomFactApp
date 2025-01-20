@@ -9,7 +9,7 @@
         <VerticalStackLayout Spacing="15" Padding="20">
 
             <Button x:Name = "btnFetchRandomFact"
-                     Text = "Show me random fact on the map"
+                     Text = "Show me a random fact on the map"
                      Command="{Binding FetchRandomFactCommand}"
                      />
 
