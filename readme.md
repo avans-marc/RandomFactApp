@@ -1,5 +1,5 @@
 # The Random Fact app
-This example app uses a random fact app API to display random facts to the user. 
+This example app uses a random fact app API to display random facts to the user and has some other basic geolocation functionality.
 
 ## 🛠️ Technology Stack
 
